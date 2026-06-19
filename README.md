@@ -4,7 +4,9 @@
 
 ## 在线阅读
 
-**GitHub Pages：** https://eppen.github.io/0ad-strategy-guide/
+**站点：** https://0ad.eppencn.com/
+
+备用地址：https://eppen.github.io/0ad-strategy-guide/
 
 ## 本地预览
 
@@ -13,7 +15,7 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
-浏览器打开 <http://127.0.0.1:8000/0ad-strategy-guide/>
+浏览器打开 <http://127.0.0.1:8000/>
 
 ## 内容目录
 
@@ -29,28 +31,40 @@ mkdocs serve
 | 多人对战 | [docs/07-multiplayer.md](docs/07-multiplayer.md) |
 | 进阶技巧 | [docs/08-advanced-tips.md](docs/08-advanced-tips.md) |
 
-## 发布到 GitHub Pages
+## 自定义域名 `0ad.eppencn.com`
 
-1. 创建 GitHub 仓库 `0ad-strategy-guide` 并推送本目录：
+域名在 [Cloudflare](https://dash.cloudflare.com/) 管理（`eppencn.com` 注册商为 Cloudflare Registrar）。
 
-   ```bash
-   gh auth login
-   gh repo create 0ad-strategy-guide --public --source=. --remote=origin --push
-   ```
+### 1. Cloudflare DNS
 
-   或手动 `git remote add origin ...` 后 `git push -u origin main`。
+在 **DNS → Records** 添加：
 
-2. 在仓库 **Settings → Pages** 中，Source 选择 **GitHub Actions**（工作流 `.github/workflows/deploy-pages.yml` 会在 push 到 `main` 时自动构建部署）。
+| 类型 | 名称 | 内容 | 代理 |
+|------|------|------|------|
+| CNAME | `0ad` | `eppen.github.io` | 仅 DNS（灰云）推荐 |
 
-3. 首次部署完成后，站点地址为：
+GitHub Pages 要求验证域名所有权；若 Enforce HTTPS 异常，可先关闭橙云代理再试。
 
-   `https://<GitHub用户名>.github.io/0ad-strategy-guide/`
+### 2. GitHub Pages
+
+仓库 **Settings → Pages → Custom domain** 填入：
+
+```
+0ad.eppencn.com
+```
+
+保存后勾选 **Enforce HTTPS**。`docs/CNAME` 已随构建产物一并部署。
+
+### 3. 自动部署
+
+push 到 `main` 分支时，`.github/workflows/deploy-pages.yml` 自动构建并发布。
 
 ## 技术栈
 
 - 文档源文件：Markdown（`docs/`）
 - 静态站点：[MkDocs Material](https://squidfunk.github.io/mkdocs-material/)
 - 部署：GitHub Actions + GitHub Pages
+- 主站博客：[eppencn.com](https://eppencn.com/)（Hexo）
 
 ## 许可
 
