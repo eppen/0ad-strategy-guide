@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2045994937692573"
+    crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/ads.css' | url }}" />
+{% endblock %}
+
+{% block content %}
+  {% if not page.is_homepage %}
+  <div class="md-adsense md-adsense--top" aria-label="Advertisement">
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-2045994937692573"
+      data-ad-format="horizontal"
+      data-full-width-responsive="true"
+    ></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  {% endif %}
+
+  {{ super() }}
+
+  <div class="md-adsense md-adsense--bottom" aria-label="Advertisement">
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-2045994937692573"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+{% endblock %}

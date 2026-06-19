@@ -1,0 +1,22 @@
+.md-adsense {
+  margin: 1.5rem 0;
+  min-height: 90px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.md-adsense--top {
+  margin-bottom: 2rem;
+}
+
+.md-adsense--bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+@media screen and (max-width: 76.1875em) {
+  .md-adsense--top {
+    display: none;
+  }
+}
