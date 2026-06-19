@@ -31,10 +31,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Patch repo URL in mkdocs.yml
-        run: |
-          sed -i "s|OWNER|${{ github.repository_owner }}|g" mkdocs.yml
-
       - name: Build site
         env:
           MKDOCS_SITE_URL: https://${{ github.repository_owner }}.github.io/0ad-strategy-guide/

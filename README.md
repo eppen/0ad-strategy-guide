@@ -4,9 +4,7 @@
 
 ## 在线阅读
 
-**GitHub Pages：** `https://<你的用户名>.github.io/0ad-strategy-guide/`
-
-（仓库推送至 GitHub 并启用 Pages 后自动部署，详见下方说明。）
+**GitHub Pages：** https://eppen.github.io/0ad-strategy-guide/
 
 ## 本地预览
 
