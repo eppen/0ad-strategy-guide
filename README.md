@@ -1,74 +1,59 @@
 # 0 A.D. 游戏攻略
 
-> 面向 **Release 28 "Boiorix"** 及后续版本的非官方中文攻略。  
-> 0 A.D.（读作 "zero ey dee"）是由 Wildfire Games 志愿者团队开发的免费开源古代 RTS 游戏。
+> 面向 **Release 28 "Boiorix"** 及后续版本的非官方中文攻略。
 
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+## 在线阅读
 
-## 关于 0 A.D.
+**GitHub Pages：** `https://<你的用户名>.github.io/0ad-strategy-guide/`
 
-0 A.D. 是一款强调历史背景的即时战略游戏。玩家扮演古代文明领袖，采集资源、建设城镇、训练军队，最终征服对手。
+（仓库推送至 GitHub 并启用 Pages 后自动部署，详见下方说明。）
 
-游戏名中的 **"0 A.D."** 是一个虚构的时间点：公历从 1 B.C. 直接跳到 1 A.D.，中间没有「零年」。这呼应了游戏的核心设定——**如果各文明都在全盛时期相遇，谁会胜出？**
+## 本地预览
 
-开发团队计划呈现 **公元前 500 年至公元 500 年** 的主要文明（中点即「零年」）。首版内容聚焦 **公元前最后五个世纪**；未来扩展包可能加入更多文明与玩法。
+```bash
+pip install -r requirements.txt
+mkdocs serve
+```
 
-团队重视历史考据：单位与建筑参考考古重建，名称常使用希腊语、拉丁语等原文。但**可玩性优先于绝对史实**——这是一款游戏，不是教科书。
+浏览器打开 <http://127.0.0.1:8000/0ad-strategy-guide/>
 
-- 官网：[play0ad.com](https://play0ad.com/)
-- 维基：[0 A.D. Wiki](https://0ad.fandom.com/)
-- 源码：[gitea.wildfiregames.com](https://gitea.wildfiregames.com/0ad/0ad)
+## 内容目录
 
-## 攻略目录
-
-| 章节 | 内容 |
+| 章节 | 文件 |
 |------|------|
-| [入门指南](docs/01-getting-started.md) | 安装、界面、首局流程 |
-| [核心机制](docs/02-game-basics.md) | 资源、领土、公民兵、胜负条件 |
-| [经济发展](docs/03-economy.md) | 采集效率、贸易、阶段升级 |
-| [军事战术](docs/04-military.md) | 兵种克制、阵型、攻城与海战 |
-| [三阶段进阶](docs/05-phases.md) | 村落 → 城镇 → 城市 节奏 |
-| [文明详解](docs/06-civilizations.md) | 15 个文明特色与推荐打法 |
-| [多人对战](docs/07-multiplayer.md) | 联机、排位、常见套路 |
-| [进阶技巧](docs/08-advanced-tips.md) | 微操、反制、AI 与 Mod |
+| 首页 | [docs/index.md](docs/index.md) |
+| 入门指南 | [docs/01-getting-started.md](docs/01-getting-started.md) |
+| 核心机制 | [docs/02-game-basics.md](docs/02-game-basics.md) |
+| 经济发展 | [docs/03-economy.md](docs/03-economy.md) |
+| 军事战术 | [docs/04-military.md](docs/04-military.md) |
+| 三阶段进阶 | [docs/05-phases.md](docs/05-phases.md) |
+| 文明详解 | [docs/06-civilizations.md](docs/06-civilizations.md) |
+| 多人对战 | [docs/07-multiplayer.md](docs/07-multiplayer.md) |
+| 进阶技巧 | [docs/08-advanced-tips.md](docs/08-advanced-tips.md) |
 
-## 快速上手（5 分钟）
+## 发布到 GitHub Pages
 
-1. **开局**：训练 3–5 名平民，分配食物与木材；同时让初始公民兵砍树。
-2. **建 dropsite**：在资源点旁建 **仓库**（木/石/金属）和 **农庄**（食物），缩短搬运路程。
-3. **尽快升 Town**：需要 500 食物 + 500 木材 + 至少 5 座建筑；Town 解锁塔楼与更多兵种。
-4. **防守再进攻**：Town 前后 AI 会派兵；先建墙/塔，再攒军。
-5. **混合兵种**：步兵抗线、骑兵侧翼、攻城器拆建筑；避免单位散开。
+1. 创建 GitHub 仓库 `0ad-strategy-guide` 并推送本目录：
 
-## 四种资源
+   ```bash
+   gh auth login
+   gh repo create 0ad-strategy-guide --public --source=. --remote=origin --push
+   ```
 
-| 资源 | 主要来源 | 用途 |
-|------|----------|------|
-| 食物 | 浆果、狩猎、渔场、农田、畜群 | 训练单位、升阶段 |
-| 木材 | 伐木 | 建筑、部分单位 |
-| 石头 | 采石场 | 高级建筑、升 City |
-| 金属 | 金属矿（地图上有闪光） | 武器、高级单位、升 City |
+   或手动 `git remote add origin ...` 后 `git push -u origin main`。
 
-## 三阶段一览
+2. 在仓库 **Settings → Pages** 中，Source 选择 **GitHub Actions**（工作流 `.github/workflows/deploy-pages.yml` 会在 push 到 `main` 时自动构建部署）。
 
-| 阶段 | 升级条件（ Civic Center 研究） | 解锁内容 |
-|------|-------------------------------|----------|
-| Village（村落） | 开局默认 | 基础步兵、侦察 |
-| Town（城镇） | 500 食物 + 500 木 + ≥5 建筑 | 防御塔、骑兵、更多科技 |
-| City（城市） | 1000 石 + 1000 金属 + ≥4 座 Town 建筑 | 冠军兵、 fortress、高级攻城 |
+3. 首次部署完成后，站点地址为：
 
-## 15 个 playable 文明（Release 28）
+   `https://<GitHub用户名>.github.io/0ad-strategy-guide/`
 
-雅典、不列颠、迦太基、高卢、**日耳曼（新）**、汉、伊比利亚、库施、马其顿、孔雀、波斯、托勒密、罗马、塞琉古、斯巴达
+## 技术栈
 
-详见 [文明详解](docs/06-civilizations.md)。
+- 文档源文件：Markdown（`docs/`）
+- 静态站点：[MkDocs Material](https://squidfunk.github.io/mkdocs-material/)
+- 部署：GitHub Actions + GitHub Pages
 
-## 贡献
+## 许可
 
-欢迎 Issue / PR：修正数据、补充文明打法、翻译改进。
-
-本攻略采用 [CC BY-SA 4.0](LICENSE) 授权。游戏本体代码为 GPL v2，美术为 CC BY-SA 3.0——请遵守 Wildfire Games 的商标与素材使用规范。
-
-## 免责声明
-
-本仓库为社区攻略，与 Wildfire Games 无官方关联。游戏平衡随版本更新会变，请以当前版本为准。
+攻略文本 [CC BY-SA 4.0](LICENSE)。0 A.D. 游戏版权归 Wildfire Games；本仓库与官方无关联。

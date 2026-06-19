@@ -1,0 +1,71 @@
+site_name: 0 A.D. 游戏攻略
+site_description: 0 A.D. Release 28 非官方中文攻略 — 经济、军事、文明与多人对战
+site_author: Community Contributors
+repo_name: 0ad-strategy-guide
+repo_url: https://github.com/OWNER/0ad-strategy-guide
+edit_uri: edit/main/docs/
+
+# GitHub Actions 构建时注入；本地预览可用 mkdocs serve
+site_url: !ENV [MKDOCS_SITE_URL, 'http://127.0.0.1:8000/0ad-strategy-guide/']
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: amber
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - scheme: slate
+      primary: amber
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - 首页: index.md
+  - 入门指南: 01-getting-started.md
+  - 核心机制: 02-game-basics.md
+  - 经济发展: 03-economy.md
+  - 军事战术: 04-military.md
+  - 三阶段进阶: 05-phases.md
+  - 文明详解: 06-civilizations.md
+  - 多人对战: 07-multiplayer.md
+  - 进阶技巧: 08-advanced-tips.md
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://play0ad.com/
+      name: 0 A.D. 官网
+
+copyright: Copyright &copy; 2026 · <a href="../LICENSE">CC BY-SA 4.0</a> · 非官方社区攻略
