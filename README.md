@@ -66,6 +66,8 @@ push 到 `main` 分支时，`.github/workflows/deploy-pages.yml` 自动构建并
 - 部署：GitHub Actions + GitHub Pages
 - 主站博客：[eppencn.com](https://eppencn.com/)（Hexo）
 
+> **AdSense 说明：** Google 通常只审核主域 `eppencn.com`，二级域名 `0ad.eppencn.com` 无法单独过审。广告代码应配置在主站 Hexo 主题中；本攻略子站不嵌入 AdSense。
+
 ## 许可
 
 攻略文本 [CC BY-SA 4.0](LICENSE)。0 A.D. 游戏版权归 Wildfire Games；本仓库与官方无关联。

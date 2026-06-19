@@ -10,7 +10,6 @@ site_url: !ENV [MKDOCS_SITE_URL, 'https://0ad.eppencn.com/']
 
 theme:
   name: material
-  custom_dir: overrides
   language: zh
   palette:
     - scheme: default
